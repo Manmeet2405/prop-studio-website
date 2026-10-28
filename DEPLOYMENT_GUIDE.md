@@ -59,3 +59,4 @@ To set this up on Vercel:
 - **WhatsApp Webhook API (`/api/whatsapp/webhook`):** Meta WhatsApp Cloud API verification handshake and incoming message webhook receiver.
 - **State Management:** Powered by React Context and browser `localStorage`, allowing the client and admin to interact with inventory updates, status transitions, and enquiry records in real time without requiring external database provisioning.
 - **FastAPI / MongoDB Backend:** Located in `backend/server.py` with safe environment variable fallbacks if you wish to connect MongoDB later.
+
