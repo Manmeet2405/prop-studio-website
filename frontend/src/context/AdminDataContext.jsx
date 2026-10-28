@@ -87,6 +87,7 @@ export const AdminDataProvider = ({ children }) => {
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
   }, []);
 
+
   // --------------------------------------------------------------------------
   // PHYSICAL INVENTORY TRANSACTIONS (per PDF Section 7 & 8)
   // --------------------------------------------------------------------------
@@ -212,19 +213,19 @@ export const AdminDataProvider = ({ children }) => {
       prev.map((e) =>
         e.id === enq.id
           ? {
-              ...e,
-              status: "won",
-              unread: false,
-              history: [
-                ...(e.history || []),
-                {
-                  status: "won",
-                  actor: actor || "Admin",
-                  timestamp: new Date().toISOString(),
-                  notes: "Order confirmed & units reserved in inventory",
-                },
-              ],
-            }
+            ...e,
+            status: "won",
+            unread: false,
+            history: [
+              ...(e.history || []),
+              {
+                status: "won",
+                actor: actor || "Admin",
+                timestamp: new Date().toISOString(),
+                notes: "Order confirmed & units reserved in inventory",
+              },
+            ],
+          }
           : e
       )
     );
@@ -284,18 +285,18 @@ export const AdminDataProvider = ({ children }) => {
       prev.map((e) =>
         e.id === enq.id
           ? {
-              ...e,
-              status: "active",
-              history: [
-                ...(e.history || []),
-                {
-                  status: "active",
-                  actor: actor || "Admin",
-                  timestamp: new Date().toISOString(),
-                  notes: "Order dispatched to shoot location",
-                },
-              ],
-            }
+            ...e,
+            status: "active",
+            history: [
+              ...(e.history || []),
+              {
+                status: "active",
+                actor: actor || "Admin",
+                timestamp: new Date().toISOString(),
+                notes: "Order dispatched to shoot location",
+              },
+            ],
+          }
           : e
       )
     );
@@ -348,18 +349,18 @@ export const AdminDataProvider = ({ children }) => {
       prev.map((e) =>
         e.id === enq.id
           ? {
-              ...e,
-              status: "returned",
-              history: [
-                ...(e.history || []),
-                {
-                  status: "returned",
-                  actor: actor || "Admin",
-                  timestamp: new Date().toISOString(),
-                  notes: "Items returned to atelier and restocked",
-                },
-              ],
-            }
+            ...e,
+            status: "returned",
+            history: [
+              ...(e.history || []),
+              {
+                status: "returned",
+                actor: actor || "Admin",
+                timestamp: new Date().toISOString(),
+                notes: "Items returned to atelier and restocked",
+              },
+            ],
+          }
           : e
       )
     );
@@ -413,18 +414,18 @@ export const AdminDataProvider = ({ children }) => {
       prev.map((e) =>
         e.id === enq.id
           ? {
-              ...e,
-              status: "lost",
-              history: [
-                ...(e.history || []),
-                {
-                  status: "lost",
-                  actor: actor || "Admin",
-                  timestamp: new Date().toISOString(),
-                  notes: "Enquiry marked lost / cancelled",
-                },
-              ],
-            }
+            ...e,
+            status: "lost",
+            history: [
+              ...(e.history || []),
+              {
+                status: "lost",
+                actor: actor || "Admin",
+                timestamp: new Date().toISOString(),
+                notes: "Enquiry marked lost / cancelled",
+              },
+            ],
+          }
           : e
       )
     );
@@ -588,19 +589,19 @@ export const AdminDataProvider = ({ children }) => {
       prev.map((e) =>
         e.id === enquiryId || e.reference === enquiryId
           ? {
-              ...e,
-              status,
-              unread: false,
-              history: [
-                ...(e.history || []),
-                {
-                  status,
-                  actor: actor || "Admin",
-                  timestamp: new Date().toISOString(),
-                  notes: notes || `Status updated to ${status}`,
-                },
-              ],
-            }
+            ...e,
+            status,
+            unread: false,
+            history: [
+              ...(e.history || []),
+              {
+                status,
+                actor: actor || "Admin",
+                timestamp: new Date().toISOString(),
+                notes: notes || `Status updated to ${status}`,
+              },
+            ],
+          }
           : e
       )
     );
@@ -721,12 +722,12 @@ export const AdminDataProvider = ({ children }) => {
         return prev.map((c) =>
           c.id === existing.id
             ? {
-                ...c,
-                status: "unread",
-                unreadCount: (c.unreadCount || 0) + 1,
-                lastActivity: new Date().toISOString(),
-                messages: [...(c.messages || []), newMsg],
-              }
+              ...c,
+              status: "unread",
+              unreadCount: (c.unreadCount || 0) + 1,
+              lastActivity: new Date().toISOString(),
+              messages: [...(c.messages || []), newMsg],
+            }
             : c
         );
       } else {
