@@ -10,23 +10,33 @@ export const StudioLogo = ({
   className = "",
 }) => {
   const flowerSizes = {
-    sm: 24,
-    md: 30,
-    lg: 38,
+    sm: 22,
+    md: 28,
+    lg: 34,
   };
 
-  const logoHeights = {
-    sm: 18,
-    md: 22,
-    lg: 28,
+  const fontSizes = {
+    sm: "15px",
+    md: "18px",
+    lg: "22px",
   };
 
-  const logoSrc = dark ? "/images/logo-white.svg" : "/images/logo.svg";
+  const dotSizes = {
+    sm: "5px",
+    md: "6.5px",
+    lg: "8px",
+  };
+
+  const dotMargins = {
+    sm: "6px",
+    md: "7px",
+    lg: "8px",
+  };
 
   return (
     <span
       className={`inline-flex items-center select-none whitespace-nowrap transition-opacity hover:opacity-90 ${className}`}
-      style={{ gap: "10px" }}
+      style={{ gap: "9px" }}
     >
       {showFlower && (
         <img
@@ -43,18 +53,34 @@ export const StudioLogo = ({
           }}
         />
       )}
-      <img
-        src={logoSrc}
-        alt={STUDIO_CONFIG.name}
-        height={logoHeights[size] || logoHeights.md}
+      <span
         style={{
-          height: `${logoHeights[size] || logoHeights.md}px`,
-          width: "auto",
-          maxWidth: "100%",
-          objectFit: "contain",
-          display: "block",
+          fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
+          fontSize: fontSizes[size] || fontSizes.md,
+          fontWeight: 500,
+          letterSpacing: "0.14em",
+          textTransform: "uppercase",
+          color: dark ? "#FFFFFF" : "#050505",
+          lineHeight: 1,
+          display: "inline-flex",
+          alignItems: "center",
         }}
-      />
+      >
+        {STUDIO_CONFIG.name}
+        <span
+          style={{
+            display: "inline-block",
+            width: dotSizes[size] || dotSizes.md,
+            height: dotSizes[size] || dotSizes.md,
+            borderRadius: "50%",
+            backgroundColor: "#FED508",
+            marginLeft: dotMargins[size] || dotMargins.md,
+            flexShrink: 0,
+            transform: "translateY(-1px)",
+          }}
+          aria-hidden="true"
+        />
+      </span>
     </span>
   );
 };
