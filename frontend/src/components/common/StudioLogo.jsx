@@ -3,49 +3,57 @@
 import React from "react";
 import { STUDIO_CONFIG } from "@/config/detailsConfig";
 
-export const StudioLogo = ({ dark = false, size = "md", className = "" }) => {
-  const fontSizes = {
-    sm: "16px",
-    md: "19px",
-    lg: "23px",
+export const StudioLogo = ({
+  dark = false,
+  size = "md",
+  showFlower = true,
+  className = "",
+}) => {
+  const flowerSizes = {
+    sm: 24,
+    md: 30,
+    lg: 38,
   };
 
-  const dotSizes = {
-    sm: "5px",
-    md: "7px",
-    lg: "8px",
+  const logoHeights = {
+    sm: 18,
+    md: 22,
+    lg: 28,
   };
+
+  const logoSrc = dark ? "/images/logo-white.svg" : "/images/logo.svg";
 
   return (
     <span
       className={`inline-flex items-center select-none whitespace-nowrap transition-opacity hover:opacity-90 ${className}`}
-      style={{ gap: "8px" }}
+      style={{ gap: "10px" }}
     >
-      <span
+      {showFlower && (
+        <img
+          src="/images/frangipani-flower.svg"
+          alt=""
+          aria-hidden="true"
+          width={flowerSizes[size] || flowerSizes.md}
+          height={flowerSizes[size] || flowerSizes.md}
+          style={{
+            width: `${flowerSizes[size] || flowerSizes.md}px`,
+            height: `${flowerSizes[size] || flowerSizes.md}px`,
+            objectFit: "contain",
+            flexShrink: 0,
+          }}
+        />
+      )}
+      <img
+        src={logoSrc}
+        alt={STUDIO_CONFIG.name}
+        height={logoHeights[size] || logoHeights.md}
         style={{
-          fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
-          fontSize: fontSizes[size] || fontSizes.md,
-          fontWeight: 500,
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          color: dark ? "#FFFFFF" : "#050505",
-          lineHeight: 1,
-          display: "inline-block",
+          height: `${logoHeights[size] || logoHeights.md}px`,
+          width: "auto",
+          maxWidth: "100%",
+          objectFit: "contain",
+          display: "block",
         }}
-      >
-        {STUDIO_CONFIG.name}
-      </span>
-      <span
-        style={{
-          display: "inline-block",
-          width: dotSizes[size] || dotSizes.md,
-          height: dotSizes[size] || dotSizes.md,
-          borderRadius: "50%",
-          backgroundColor: "#FED508",
-          flexShrink: 0,
-          marginBottom: "1px",
-        }}
-        aria-hidden="true"
       />
     </span>
   );

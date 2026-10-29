@@ -113,7 +113,7 @@ export const AdminSidebar = ({ onNavigate }) => {
 
       <div className="aside-foot">
         <div style={{ display: "flex", gap: "12px", alignItems: "center", padding: "0 12px" }}>
-          <span className="avatar" aria-hidden="true">{STUDIO_CONFIG.initials}</span>
+          <span className="avatar flex items-center justify-center p-1 bg-white/10" aria-hidden="true"><img src="/images/frangipani-flower.svg" alt="" style={{ width: "22px", height: "22px", objectFit: "contain" }} /></span>
           <div style={{ minWidth: 0 }}>
             <p style={{ fontSize: "14px", fontWeight: 500, color: "#FFFFFF" }}>{STUDIO_CONFIG.name}</p>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)", overflow: "hidden", textOverflow: "ellipsis" }}>

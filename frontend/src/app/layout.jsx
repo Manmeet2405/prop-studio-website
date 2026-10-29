@@ -7,6 +7,10 @@ import { STUDIO_CONFIG } from "@/config/detailsConfig";
 export const metadata = {
   title: `${STUDIO_CONFIG.name} | ${STUDIO_CONFIG.subtitle}`,
   description: STUDIO_CONFIG.tagline,
+  icons: {
+    icon: "/images/frangipani-flower.svg",
+    apple: "/images/frangipani-flower.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
